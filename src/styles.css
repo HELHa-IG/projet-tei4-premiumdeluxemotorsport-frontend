@@ -1,58 +1,6 @@
-
-.div {
-	display: flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-}
-
-.d0 {
-	width: 100%;
-	display: flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-}
-
-.d1 {
-	width: 15%;
-	display: flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-}
-
-.d2 {
-	width: 70%;
-	display: flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-}
-
-.p-button-icon {
-	color: azure !important;
-}
-
-.p-tabmenu-nav, .p-menuitem-link {
-	background-color: transparent !important;
-	border: none !important;
-}
-
-.p-menuitem-text {
-	color: azure !important;
-}
-
-.d3 {
-	width: 15%;
-	display: flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-}
-
-.centered {
-	position: absolute;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
 	background: radial-gradient(circle at 10% 20%, rgb(69, 86, 102) 0%, rgb(34, 34, 34) 90%);

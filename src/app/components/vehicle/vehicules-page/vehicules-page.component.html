@@ -1,0 +1,14 @@
+<app-home></app-home>
+<div class="flex justify-around flex-wrap gap-8">
+<div class="card w-96 bg-base-100 shadow-xl" *ngFor="let vehicle of vehicles">
+    <figure><img src="{{vehicle.image}}" alt="car" /></figure>
+    <div class="card-body">
+      <h2 class="card-title">{{vehicle.model}}</h2>
+      <p>{{vehicle.marque}}</p>
+      <div class="card-actions justify-end">
+		<p class="bold">{{vehicle.prix}} €</p>
+        <a class="btn btn-primary" routerLink="/buy/{{vehicle.vehiculeId}}">Buy Now</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,14 +3,13 @@ import { Custom } from "./custom";
 import { Reservation } from "./reservation";
 
 export interface Vehicle {
-	id: number;
-	brand: string;
+	vehiculeId: number;
+	marque: string;
   	model: string;
-  	price: number;
-	Image: string;
-	NbrSiege: number;
-	Customs: Custom[];
-	Commandes: Commande[];
-	Reservations: Reservation[];
+  	prix: number;
+	image: string;
+	// Customs: Custom[];
+	// Commandes: Commande[];
+	// Reservations: Reservation[];
 
 }

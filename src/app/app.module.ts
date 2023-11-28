@@ -9,11 +9,15 @@ import { HomeComponent } from './components/homepage/home/home.component';
 
 import { ImageModule } from 'primeng/image';
 import  { ButtonModule } from 'primeng/button';
+import { VehiculesPageComponent } from './components/vehicle/vehicules-page/vehicules-page.component';
+import { SidebarModule } from 'primeng/sidebar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    VehiculesPageComponent
 ],
   imports: [
 	BrowserModule,
@@ -21,7 +25,9 @@ import  { ButtonModule } from 'primeng/button';
 	HttpClientModule,
 	TabMenuModule,
 	ImageModule,
-	ButtonModule
+	ButtonModule,
+	SidebarModule,
+	BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,23 @@
+.carProduct {
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+}
+
+.carProductImg {
+	object-fit: ;
+}
+
+.carProductData {
+}
+
+/* .carProductData-options {
+}
+
+.carProductData-brand {
+}
+
+.carProductData-model {
+}
+.carProductData-price {
+} */

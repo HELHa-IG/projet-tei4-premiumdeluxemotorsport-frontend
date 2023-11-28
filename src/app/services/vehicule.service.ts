@@ -13,23 +13,23 @@ export class VehiculeService {
   constructor(private http: HttpClient) { }
 
 	getVehicleById(vehicleId: number): Observable<Vehicle> {
-		return this.http.get<Vehicle>(`${environment.api}/vehicles/${vehicleId}`);
+		return this.http.get<Vehicle>(`${environment.api}/Vehicules/${vehicleId}`);
 	}
 
 	getVehicles(): Observable<Vehicle[]> {
-		return this.http.get<Vehicle[]>(`${environment.api}/vehicles`);
+		return this.http.get<Vehicle[]>(`${environment.api}/Vehicules`);
 	}
 
 	addVehicle(vehicle: Vehicle): Observable<Vehicle> {
-		return this.http.post<Vehicle>(`${environment.api}/vehicules`, vehicle);
+		return this.http.post<Vehicle>(`${environment.api}/Vehicules`, vehicle);
 	}
 
 	deleteVehicle(vehicleId: number): Observable<Vehicle> {
-		return this.http.delete<Vehicle>(`${environment.api}/vehicles/${vehicleId}`);
+		return this.http.delete<Vehicle>(`${environment.api}/Vehicules/${vehicleId}`);
 	}
 
 	updateVehicle(vehicle: Vehicle): Observable<Vehicle>{
-		return this.http.put<Vehicle>(`${environment.api}/vehicles/${vehicle.id}`, vehicle);
+		return this.http.put<Vehicle>(`${environment.api}/Vehicules/${vehicle.vehiculeId}`, vehicle);
 	}
 
 }
