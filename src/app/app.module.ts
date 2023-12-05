@@ -16,11 +16,17 @@ import { SidebarComponent } from './components/panel/sidebar/sidebar.component';
 import { CardModule } from 'primeng/card';
 import { NavbarComponent } from './components/homepage/navbar/navbar.component';
 import { LogocloudsComponent } from './components/homepage/logoclouds/logoclouds.component';
-import { DividerModule} from 'primeng/divider';
+import { DividerModule} from 'primeng/divider'
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { TagModule } from 'primeng/tag';
+import { DropdownModule } from 'primeng/dropdown';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { TableModule } from 'primeng/table';
 import { StatsHomepageComponent } from './components/homepage/stats-homepage/stats-homepage.component';
 import { TestimonialsComponent } from './components/homepage/testimonials/testimonials.component';
 import { PanelContentComponent } from './components/panel/panel-content/panel-content.component';
 import { ErrorPageNotFoundComponent } from './components/errors/error-page-not-found/error-page-not-found.component';
+import { AddUserDialogComponent } from './components/panel/add-user-dialog/add-user-dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +39,8 @@ import { ErrorPageNotFoundComponent } from './components/errors/error-page-not-f
     StatsHomepageComponent,
     TestimonialsComponent,
     PanelContentComponent,
-    ErrorPageNotFoundComponent
+    ErrorPageNotFoundComponent,
+    AddUserDialogComponent
 ],
   imports: [
 	BrowserModule,
@@ -45,7 +52,12 @@ import { ErrorPageNotFoundComponent } from './components/errors/error-page-not-f
 	SidebarModule,
 	BrowserAnimationsModule,
 	CardModule,
-	DividerModule
+	DividerModule,
+	DynamicDialogModule,
+	TagModule,
+	DropdownModule,
+	TableModule,
+	MultiSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

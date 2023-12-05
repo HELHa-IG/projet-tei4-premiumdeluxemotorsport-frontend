@@ -1,0 +1,66 @@
+
+<div class="card
+">
+	<p-table
+		#dt2
+		[value]="vehicles"
+		dataKey="id"
+		[rows]="10"
+		[showCurrentPageReport]="true"
+		[rowsPerPageOptions]="[10, 25, 50]"
+		[loading]="loading"
+		[paginator]="true"
+		currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+		[globalFilterFields]="['vehicle.model', 'vehicle.marque', 'vehicle.prix']"
+		[tableStyle]="{'min-width': '75rem'}"
+		>
+		<!-- <ng-template pTemplate="caption"> -->
+			<!-- <div class="flex"> -->
+				<!-- <span class="p-input-icon-left ml-auto"> -->
+					<!-- <i class="pi pi-search"></i> -->
+					<!-- <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value, 'Contains')" placeholder="Search keyword" /> -->
+				<!-- </span> -->
+			<!-- </div> -->
+		<!-- </ng-template> -->
+		<ng-template pTemplate="header">
+			<tr>
+				<th style="width:25%">Marque</th>
+				<th style="width:25%">Model</th>
+				<th style="width:25%">Price</th>
+			</tr>
+			<tr>
+				<th>
+					<p-columnFilter type="text" field="marque"></p-columnFilter>
+				</th>
+				<th>
+					<p-columnFilter type="text" field="model"></p-columnFilter>
+				</th>
+				<th>
+					<p-columnFilter type="text" field="prix" ></p-columnFilter>
+				</th>
+			</tr>
+		</ng-template>
+		<ng-template pTemplate="body" let-vehicles>
+			<tr>
+				<!-- <td>
+					{{ vehicles.Id }}
+				</td> -->
+				<td>
+					<span class="ml-1 vertical-align-middle">{{ vehicles.marque }}</span>
+				</td>
+				<td class="flex">
+					<img [alt]="vehicles.model" src="{{ vehicles.image }}" width="32" style="vertical-align: middle" />
+					<span class="ml-1 vertical-align-middle">{{ vehicles.model }}</span>
+				</td>
+				<td>
+					<p-tag [value]="vehicles.prix + ' €' "></p-tag>
+				</td>
+			</tr>
+		</ng-template>
+		<ng-template pTemplate="emptymessage">
+			<tr>
+				<td colspan="5">No vehicles found.</td>
+			</tr>
+		</ng-template>
+	</p-table>
+</div>
