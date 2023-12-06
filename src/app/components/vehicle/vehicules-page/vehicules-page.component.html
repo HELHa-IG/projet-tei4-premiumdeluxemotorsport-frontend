@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 	<div class="grid grid-cols-4 place-items-center gap-8">
 <div class="card w-96 bg-base-100 shadow-2xl" *ngFor="let vehicle of vehicles">
-    <figure><img src="{{vehicle.image}}" alt="car" /></figure>
+    <figure><img src="assets/images/{{vehicle.image}}" alt="car" /></figure>
     <div class="card-body">
       <h2 class="card-title">{{vehicle.model}}</h2>
       <p>{{vehicle.marque}}</p>

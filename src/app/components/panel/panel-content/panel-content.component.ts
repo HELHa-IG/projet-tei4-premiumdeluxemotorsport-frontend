@@ -15,8 +15,8 @@ import { AddUserDialogComponent } from '../add-user-dialog/add-user-dialog.compo
 export class PanelContentComponent implements OnInit, OnDestroy {
 	vehicles!: Vehicle[];
 	vehicle!: Vehicle;
-
-
+	loading: boolean = true;
+	activityValues: number[] = [0, 100];
 	ref: DynamicDialogRef | undefined;
 
 	constructor(private vehicleService: VehiculeService, public dialogService: DialogService, public messageService: MessageService){}
@@ -30,6 +30,7 @@ export class PanelContentComponent implements OnInit, OnDestroy {
 		this.vehicleService.getVehicles().subscribe({
 			next: (data) => {
 				this.vehicles = data;
+				this.loading = false;
 			},
 			error: (error) => {
 				this.vehicles = [];
@@ -42,10 +43,11 @@ export class PanelContentComponent implements OnInit, OnDestroy {
 	show() {
 		this.ref = this.dialogService.open(AddUserDialogComponent, {
 			header: 'Add vehicle',
-			width: '70%',
-			contentStyle: { overflow: 'auto' },
+			width: '40%',
+			height: '80%',
+			contentStyle: { overflow: 'auto'},
 			baseZIndex: 10000,
-			maximizable: true
+			maximizable: true,
 		});
 
 		this.ref.onClose.subscribe((vehicle: Vehicle) => {
@@ -57,11 +59,6 @@ export class PanelContentComponent implements OnInit, OnDestroy {
 		this.ref.onMaximize.subscribe((value) => {
 			this.messageService.add({ severity: 'info', summary: 'Maximized', detail: `maximized: ${value.maximized}` });
 		});
-	}
-
-
-	AddVehicle(){
-		// fonction qui est actionner par un button et qui permet d'ajouter un nouveau type de vehicle
 	}
 
 }

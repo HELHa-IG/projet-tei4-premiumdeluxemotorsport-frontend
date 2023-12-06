@@ -24,6 +24,19 @@ export class VehiculeService {
 		return this.http.post<Vehicle>(`${environment.api}/Vehicules`, vehicle);
 	}
 
+	addVehicleWithImage(marque: string, model: string, prix: number, file: File | null){
+		const formData = new FormData();
+		formData.append('marque', marque);
+		formData.append('model', model);
+		formData.append('prix', prix.toString());
+		if(file != null){
+			formData.append('file', file);
+		}
+
+		return this.http.post(`${environment.api}/Vehicules`, formData);
+
+	}
+
 	deleteVehicle(vehicleId: number): Observable<Vehicle> {
 		return this.http.delete<Vehicle>(`${environment.api}/Vehicules/${vehicleId}`);
 	}

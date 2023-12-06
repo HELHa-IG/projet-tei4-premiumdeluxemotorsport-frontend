@@ -14,14 +14,20 @@ import { SidebarModule } from 'primeng/sidebar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from './components/panel/sidebar/sidebar.component';
 import { CardModule } from 'primeng/card';
+import { CheckboxModule } from 'primeng/checkbox';
 import { NavbarComponent } from './components/homepage/navbar/navbar.component';
 import { LogocloudsComponent } from './components/homepage/logoclouds/logoclouds.component';
 import { DividerModule} from 'primeng/divider'
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TagModule } from 'primeng/tag';
 import { DropdownModule } from 'primeng/dropdown';
+import {MessagesModule} from 'primeng/messages';
+import {ToastModule} from 'primeng/toast';
+import {MessageModule} from 'primeng/message';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { TableModule } from 'primeng/table';
+import { FileUploadModule } from 'primeng/fileupload';
 import { StatsHomepageComponent } from './components/homepage/stats-homepage/stats-homepage.component';
 import { TestimonialsComponent } from './components/homepage/testimonials/testimonials.component';
 import { PanelContentComponent } from './components/panel/panel-content/panel-content.component';
@@ -58,6 +64,13 @@ import { AddUserDialogComponent } from './components/panel/add-user-dialog/add-u
 	DropdownModule,
 	TableModule,
 	MultiSelectModule,
+	CheckboxModule,
+	FileUploadModule,
+	FormsModule,
+	ReactiveFormsModule,
+	MessagesModule,
+	MessageModule,
+	ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

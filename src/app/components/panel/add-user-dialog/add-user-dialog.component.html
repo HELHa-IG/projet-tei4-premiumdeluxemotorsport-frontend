@@ -1,66 +1,68 @@
+<html class="h-full">
+  <body class="dark:bg-slate-900 bg-gray-100 flex h-full items-center py-16">
+	<main class="w-full max-w-md mx-auto p-6">
+	  <div class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
+		<div class="p-4 sm:p-7">
+		  <div class="text-center">
+			<h1 class="block text-2xl font-bold text-gray-800 dark:text-white">Add vehicule</h1>
+		  </div>
 
-<div class="card
-">
-	<p-table
-		#dt2
-		[value]="vehicles"
-		dataKey="id"
-		[rows]="10"
-		[showCurrentPageReport]="true"
-		[rowsPerPageOptions]="[10, 25, 50]"
-		[loading]="loading"
-		[paginator]="true"
-		currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-		[globalFilterFields]="['vehicle.model', 'vehicle.marque', 'vehicle.prix']"
-		[tableStyle]="{'min-width': '75rem'}"
-		>
-		<!-- <ng-template pTemplate="caption"> -->
-			<!-- <div class="flex"> -->
-				<!-- <span class="p-input-icon-left ml-auto"> -->
-					<!-- <i class="pi pi-search"></i> -->
-					<!-- <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value, 'Contains')" placeholder="Search keyword" /> -->
-				<!-- </span> -->
-			<!-- </div> -->
-		<!-- </ng-template> -->
-		<ng-template pTemplate="header">
-			<tr>
-				<th style="width:25%">Marque</th>
-				<th style="width:25%">Model</th>
-				<th style="width:25%">Price</th>
-			</tr>
-			<tr>
-				<th>
-					<p-columnFilter type="text" field="marque"></p-columnFilter>
-				</th>
-				<th>
-					<p-columnFilter type="text" field="model"></p-columnFilter>
-				</th>
-				<th>
-					<p-columnFilter type="text" field="prix" ></p-columnFilter>
-				</th>
-			</tr>
-		</ng-template>
-		<ng-template pTemplate="body" let-vehicles>
-			<tr>
-				<!-- <td>
-					{{ vehicles.Id }}
-				</td> -->
-				<td>
-					<span class="ml-1 vertical-align-middle">{{ vehicles.marque }}</span>
-				</td>
-				<td class="flex">
-					<img [alt]="vehicles.model" src="{{ vehicles.image }}" width="32" style="vertical-align: middle" />
-					<span class="ml-1 vertical-align-middle">{{ vehicles.model }}</span>
-				</td>
-				<td>
-					<p-tag [value]="vehicles.prix + ' €' "></p-tag>
-				</td>
-			</tr>
-		</ng-template>
-		<ng-template pTemplate="emptymessage">
-			<tr>
-				<td colspan="5">No vehicles found.</td>
-			</tr>
-		</ng-template>
-	</p-table>
-</div>
+		  <div class="mt-5">
+			<p-divider></p-divider>
+			<!-- Form -->
+			<form>
+			  <div class="grid gap-y-4">
+				<!-- Form Group -->
+				<div>
+				  <label for="model" class="block text-sm mb-2 dark:text-white">Vehicle Model</label>
+				  <div class="relative">
+					<input [(ngModel)]="vehicle.model" type="text" id="model" name="model" class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required>
+				  </div>
+				  <p class="hidden text-xs text-red-600 mt-2" id="model-error">Please include a model name</p>
+				</div>
+				<!-- End Form Group -->
+
+				<!-- Form Group -->
+				<div>
+				  <div class="flex justify-between items-center">
+					<label for="marque" class="block text-sm mb-2 dark:text-white">Vehicle Brand</label>
+				  </div>
+				  <div class="relative">
+					<input [(ngModel)]="vehicle.marque" type="text" id="marque" name="marque" class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required>
+				  </div>
+				  <p class="hidden text-xs text-red-600 mt-2" id="brand-error">Please include a brand name</p>
+				</div>
+				<!-- End Form Group -->
+
+				<!-- Form Group -->
+				<div>
+					<div class="flex justify-between items-center">
+					  <label for="price" class="block text-sm mb-2 dark:text-white">Vehicle Price</label>
+					</div>
+					<div class="relative">
+					  <input [(ngModel)]="vehicle.prix" type="number" id="price" name="price" class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required aria-describedby="price-error">
+					</div>
+					<p class="hidden text-xs text-red-600 mt-2" id="price-error">Please include a price</p>
+				  </div>
+				  <!-- End Form Group -->
+
+				<!-- Form Group -->
+				<div>
+					<label for="image" class="block text-sm mb-2 dark:text-white">Vehicle Image</label>
+					<div class="relative text-white">
+						<input type="file" name="file" (change)="onFileSelected($event)" accept="image/*">
+					</div>
+					<p class="hidden text-xs text-red-600 mt-2" id="image-error">Please include a image</p>
+				  </div>
+				  <!-- End Form Group -->
+				<p-button class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" (click)="AddVehicle()">Add vehicle</p-button>
+			  </div>
+			</form>
+			<!-- End Form -->
+			<p-toast position="top-center"></p-toast>
+		  </div>
+		</div>
+	  </div>
+	</main>
+  </body>
+</html>
