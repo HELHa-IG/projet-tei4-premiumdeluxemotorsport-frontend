@@ -1,0 +1,58 @@
+<div class="h-full">
+	<div class="flex h-full items-center py-8">
+		<div class="w-full min-w-full mx-auto p-6">
+			<div class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-slate-900 dark:border-gray-700">
+				<div class="p-4 sm:p-7">
+					<div class="text-center">
+						<h1 class="block text-2xl font-bold text-gray-800 dark:text-white uppercase">Add new user</h1>
+					</div>
+					<div class="mt-16">
+						<form #addUserForm="ngForm" (ngSubmit)="onSubmit(addUserForm)">
+							<div class="grid gap-y-4">
+								<div>
+									<label for="name" class="block text-sm mb-2 dark:text-white">Firstname</label>
+									<div class="relative">
+										<input [(ngModel)]="firstname" type="text" id="name" name="name" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required minlength="5" aria-describedby="email-error">
+									</div>
+								</div>
+								<div>
+									<label for="lastname" class="block text-sm mb-2 dark:text-white">Lastname</label>
+									<div class="relative">
+										<input [(ngModel)]="lastname" type="text" id="lastname" name="lastname" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required minlength="5" aria-describedby="password-error">
+									</div>
+								</div>
+								<div>
+									<label for="email" class="block text-sm mb-2 dark:text-white">Email</label>
+									<div class="relative">
+										<input [(ngModel)]="email" type="email" id="email" name="email" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required minlength="5" aria-describedby="password-error">
+									</div>
+								</div>
+								<div>
+									<label for="password" class="block text-sm mb-2 dark:text-white">Password</label>
+									<div class="relative">
+										<input [(ngModel)]="password" type="password" id="password" name="password" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required minlength="5" aria-describedby="password-error">
+									</div>
+								</div>
+								<div>
+									<label for="password_confirm" class="block text-sm mb-2 dark:text-white">Confirm Password</label>
+									<div class="relative">
+										<input [(ngModel)]="password_confirm" type="password" id="password_confirm" name="password_confirm" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required minlength="5" aria-describedby="password-error">
+									</div>
+								</div>
+								<div>
+									<label for="role" class="block text-sm mb-2 dark:text-white">Role</label>
+									<div class="relative">
+										<select [(ngModel)]="role" name="role" id="role" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
+											<option *ngFor="let role of roles" value="{{role.id}}" >{{role.name}}</option>
+										</select>
+									</div>
+								</div>
+								<button [disabled]="!addUserForm.valid" type="submit" class="w-full mt-6 py-4 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Add</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

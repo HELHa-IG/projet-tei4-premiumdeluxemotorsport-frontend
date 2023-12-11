@@ -3,32 +3,38 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Reservation} from "../models/reservation";
 import {environment} from "../../environments/environment.development";
+import {AuthenticationService} from "./authentication.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationService {
 
-  	constructor(private http: HttpClient) { }
+  	constructor(private http: HttpClient, private service: AuthenticationService) { }
 
 	getReservations(): Observable<Reservation[]> {
-		return this.http.get<Reservation[]>(`${environment.api}/Reservations`);
+		const headers = this.service.getHeaders()
+		return this.http.get<Reservation[]>(`${environment.api}/reservations`, {headers});
 	}
 
 	getReservationById(id: number): Observable<Reservation> {
-		return this.http.get<Reservation>(`${environment.api}/Reservations/${id}`);
+		const headers = this.service.getHeaders()
+		return this.http.get<Reservation>(`${environment.api}/reservations/${id}`, {headers});
 	}
 
-	addReservation(Reservation: Reservation): Observable<Reservation> {
-		return this.http.post<Reservation>(`${environment.api}/Reservations`, Reservation);
+	addReservation(reservation: Reservation): Observable<Reservation> {
+		const headers = this.service.getHeaders()
+		return this.http.post<Reservation>(`${environment.api}/reservations`, reservation, {headers});
 	}
 
-	updateReservation(Reservation: Reservation): Observable<Reservation> {
-		return this.http.put<Reservation>(`${environment.api}/Reservations/${Reservation.id}`, Reservation);
+	updateReservation(reservation: Reservation): Observable<Reservation> {
+		const headers = this.service.getHeaders()
+		return this.http.put<Reservation>(`${environment.api}/reservations/${reservation.id}`, reservation, {headers});
 	}
 
 	deleteReservation(id: number): Observable<void> {
-		return this.http.delete<void>(`${environment.api}/Reservations/${id}`);
+		const headers = this.service.getHeaders()
+		return this.http.delete<void>(`${environment.api}/reservations/${id}`, {headers});
 	}
 
 }

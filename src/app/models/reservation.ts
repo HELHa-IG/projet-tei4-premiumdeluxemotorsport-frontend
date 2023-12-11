@@ -4,6 +4,8 @@ import {Vehicle} from "./vehicle";
 export interface Reservation {
 	id: number;
 	date: Date;
+	userId: number;
 	user: User;
-	vehicle: Vehicle;
+	vehicleId: number;
+	vehicule: Vehicle
 }
