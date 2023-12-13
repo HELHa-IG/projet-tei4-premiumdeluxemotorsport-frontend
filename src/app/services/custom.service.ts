@@ -15,7 +15,7 @@ export class CustomService {
 
 	getCustoms(): Observable<Custom[]>{
 		const headers : HttpHeaders = this.service.getHeaders()
-		return this.http.get<Custom[]>('`${environment.api}/customs', {headers})
+		return this.http.get<Custom[]>(`${environment.api}/customs`, {headers})
 	}
 
 	getCustomById(id: number): Observable<Custom> {

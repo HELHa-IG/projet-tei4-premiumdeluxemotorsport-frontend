@@ -22,6 +22,11 @@ export class ReservationService {
 		return this.http.get<Reservation>(`${environment.api}/reservations/${id}`, {headers});
 	}
 
+	getReservationByUserId(id: number): Observable<Reservation[]> {
+		const headers = this.service.getHeaders()
+		return this.http.get<Reservation[]>(`${environment.api}/reservations/user/${id}`, {headers});
+	}
+
 	addReservation(reservation: Reservation): Observable<Reservation> {
 		const headers = this.service.getHeaders()
 		return this.http.post<Reservation>(`${environment.api}/reservations`, reservation, {headers});

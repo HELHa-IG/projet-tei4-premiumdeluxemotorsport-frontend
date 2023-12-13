@@ -1,1 +1,51 @@
-<p>add-command-dashboard works!</p>
+<div class="h-full">
+	<div class="flex h-full items-center py-16">
+		<div class="w-full min-w-full mx-auto p-6">
+			<div class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-slate-900 dark:border-gray-700">
+				<div class="p-4 sm:p-7">
+					<div class="text-center">
+						<h1 class="block text-2xl font-bold text-gray-800 dark:text-white uppercase">Add new command</h1>
+					</div>
+					<div class="mt-16">
+						<form #addReservationForm="ngForm" (ngSubmit)="onSubmit(addReservationForm)">
+							<div class="grid gap-y-4">
+								<div>
+									<label for="date" class="block text-sm mb-2 dark:text-white">Date</label>
+									<div class="relative">
+										<input [(ngModel)]="date" type="datetime-local" id="date" name="date" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required>
+									</div>
+								</div>
+								<div>
+									<label for="custom" class="block text-sm mb-2 dark:text-white">Custom</label>
+									<div class="relative">
+										<select [(ngModel)]="custom" name="custom" id="custom" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
+											<option *ngFor="let custom of customs" value="{{custom.id}}" >{{custom.id + ' ' + custom.couleur+ ' ' + custom.stage + ' ' + custom.prixCustom}}</option>
+										</select>
+									</div>
+								</div>
+								<div>
+									<label for="client" class="block text-sm mb-2 dark:text-white">Client</label>
+									<div class="relative">
+										<select [(ngModel)]="client" name="client" id="client" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
+											<option *ngFor="let user of users" value="{{user.id}}" >{{user.firstname + ' ' +user.lastname.toUpperCase()}}</option>
+										</select>
+									</div>
+								</div>
+								<div>
+									<label for="vehicle" class="block text-sm mb-2 dark:text-white">Vehicle</label>
+									<div class="relative">
+										<select [(ngModel)]="vehicle" name="vehicle" id="vehicle" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
+											<option *ngFor="let vehicle of vehicles" value="{{vehicle.vehiculeId}}" >{{vehicle.marque + ' ' +vehicle.model}}</option>
+										</select>
+									</div>
+								</div>
+
+								<button [disabled]="!addReservationForm.valid" type="submit" class="w-full mt-6 py-4 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Add</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

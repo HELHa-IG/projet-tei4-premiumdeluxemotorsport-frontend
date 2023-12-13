@@ -17,7 +17,10 @@ export class LoginComponent {
 		this.service.login(this.email, this.password).subscribe({
 			next: data => {
 				this.service.setToken(data.token);
-				this.router.navigate(['dashboard'])
+				if (this.service.getUserRole().toUpperCase() == 'ADMIN')
+					this.router.navigate(['dashboard'])
+				else
+					this.router.navigate(['vehicles'])
 			},
 			error: err => console.error(err)
 		})

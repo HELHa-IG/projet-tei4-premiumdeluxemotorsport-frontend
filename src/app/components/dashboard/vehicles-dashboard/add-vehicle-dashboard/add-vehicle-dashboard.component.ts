@@ -11,24 +11,14 @@ export class AddVehicleDashboardComponent {
 	brand: string = "";
 	model: string = "";
 	price: string = "";
-	image: string = "";
-	password_confirm: string = "";
-	role: number = 0;
+	image: File | null = null;
 
 	constructor(private service: VehiculeService, private router: Router) {}
 
 	onSubmit(form: any): void {
-
-		const vehicle = {
-			vehiculeId: 0,
-			marque: this.brand,
-			model: this.brand,
-			prix: parseFloat(this.price),
-			image: this.image
-		};
-		this.service.addVehicle(vehicle).subscribe({
+		this.service.addVehicleWithImage(this.brand, this.brand, parseFloat(this.price), this.image).subscribe({
 			next: () => this.router.navigate(["/dashboard/vehicles"]),
 			error: err => console.error(err)
-		})
+		});
 	}
 }

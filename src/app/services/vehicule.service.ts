@@ -1,27 +1,31 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Vehicle } from '../models/vehicle';
 import { environment } from 'src/environments/environment.development';
+import {AuthenticationService} from "./authentication.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class VehiculeService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private service: AuthenticationService) { }
 
 	getVehicleById(vehicleId: number): Observable<Vehicle> {
-		return this.http.get<Vehicle>(`${environment.api}/Vehicules/${vehicleId}`);
+		const headers : HttpHeaders = this.service.getHeaders()
+		return this.http.get<Vehicle>(`${environment.api}/Vehicules/${vehicleId}`, {headers});
 	}
 
 	getVehicles(): Observable<Vehicle[]> {
-		return this.http.get<Vehicle[]>(`${environment.api}/Vehicules`);
+		const headers : HttpHeaders = this.service.getHeaders()
+		return this.http.get<Vehicle[]>(`${environment.api}/Vehicules`, {headers});
 	}
 
 	addVehicle(vehicle: Vehicle): Observable<Vehicle> {
-		return this.http.post<Vehicle>(`${environment.api}/Vehicules`, vehicle);
+		const headers : HttpHeaders = this.service.getHeaders()
+		return this.http.post<Vehicle>(`${environment.api}/Vehicules`, vehicle, {headers});
 	}
 
 	addVehicleWithImage(marque: string, model: string, prix: number, file: File | null){
@@ -32,17 +36,19 @@ export class VehiculeService {
 		if(file != null){
 			formData.append('file', file);
 		}
-
-		return this.http.post(`${environment.api}/Vehicules`, formData);
+		const headers : HttpHeaders = this.service.getHeaders()
+		return this.http.post(`${environment.api}/Vehicules`, formData, {headers});
 
 	}
 
 	deleteVehicle(vehicleId: number): Observable<Vehicle> {
-		return this.http.delete<Vehicle>(`${environment.api}/Vehicules/${vehicleId}`);
+		const headers : HttpHeaders = this.service.getHeaders()
+		return this.http.delete<Vehicle>(`${environment.api}/Vehicules/${vehicleId}`, {headers});
 	}
 
 	updateVehicle(vehicle: Vehicle): Observable<Vehicle>{
-		return this.http.put<Vehicle>(`${environment.api}/Vehicules/${vehicle.vehiculeId}`, vehicle);
+		const headers : HttpHeaders = this.service.getHeaders()
+		return this.http.put<Vehicle>(`${environment.api}/Vehicules/${vehicle.vehiculeId}`, vehicle, {headers});
 	}
 
 }

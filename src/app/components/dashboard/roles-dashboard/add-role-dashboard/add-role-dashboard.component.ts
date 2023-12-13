@@ -20,7 +20,6 @@ export class AddRoleDashboardComponent {
 			name: this.name,
 			description: this.description
 		}
-		console.log(role)
 		this.service.addRole(role).subscribe({
 			next: () => this.router.navigate(["/dashboard/roles"]),
 			error: err => console.log(err)

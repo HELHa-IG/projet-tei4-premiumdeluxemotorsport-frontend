@@ -39,6 +39,7 @@ import {
 import {
 	AddCustomDashboardComponent
 } from "./components/dashboard/customs-dashboard/add-custom-dashboard/add-custom-dashboard.component";
+import {ReservationsComponent} from "./components/reservations/reservations.component";
 
 const routes: Routes = [
 	//{ path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -46,7 +47,7 @@ const routes: Routes = [
 	{ path: 'login', component: LoginComponent},
 	{ path: 'register', component: RegisterComponent},
 	{ path: 'vehicles', component: VehiculesPageComponent},
-	{ path: 'reservations', component: VehiculesPageComponent},
+	{ path: 'reservations', component: ReservationsComponent},
 	{ path: 'commands', component: VehiculesPageComponent},
 	{ path: 'customs', component: VehiculesPageComponent},
 	{ path: 'contact', component: ContactComponent},

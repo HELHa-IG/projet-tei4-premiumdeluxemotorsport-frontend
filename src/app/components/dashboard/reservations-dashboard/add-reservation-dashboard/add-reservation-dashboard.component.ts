@@ -3,6 +3,8 @@ import {ReservationService} from "../../../../services/reservation.service";
 import {UserService} from "../../../../services/user.service";
 import {VehiculeService} from "../../../../services/vehicule.service";
 import {User} from "../../../../models/user";
+import {Reservation} from "../../../../models/reservation";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-reservation-dashboard',
@@ -16,7 +18,7 @@ export class AddReservationDashboardComponent implements OnInit{
 	client: number = 0;
 	vehicle: number = 0;
 
-	constructor(private service: ReservationService, private uService: UserService, private vService: VehiculeService) {}
+	constructor(private service: ReservationService, private uService: UserService, private vService: VehiculeService, private router: Router) {}
 
 	ngOnInit(): void {
         this.uService.getUsers().subscribe({
@@ -30,6 +32,15 @@ export class AddReservationDashboardComponent implements OnInit{
     }
 
 	onSubmit(form: any): void {
-
+		const reservation: Reservation = {
+			id: 0,
+			date: this.date,
+			userId: this.client,
+			vehiculeId: this.vehicle
+		}
+		this.service.addReservation(reservation).subscribe({
+			next: () => this.router.navigate(["/dashboard/reservations"]),
+			error: err => console.error(err)
+		})
 	}
 }

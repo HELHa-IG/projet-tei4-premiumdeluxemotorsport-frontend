@@ -8,7 +8,7 @@
 	<nav class="p-6 w-full flex flex-col flex-wrap">
 		<ul class="space-y-1.5">
 			<li>
-				<a routerLink="account" (click)="console.log(isActive('account'))"
+				<a routerLink="account"
 				   [ngClass]="{'bg-gray-700 text-white': isActive('account'),
 				   'text-gray-400 hover:bg-gray-800 hover:text-white-300': !isActive('account')}"
 					class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-600"
@@ -50,7 +50,7 @@
 				</a>
 			</li>
 			<li>
-				<a routerLink="reservations"
+				<a *ngIf="isAdmin()" routerLink="reservations"
 				   [ngClass]="{'bg-gray-700 text-white': isActive('reservations'),
 				   'text-gray-400 hover:bg-gray-800 hover:text-white-300': !isActive('reservations')}"
 				   class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-600"
@@ -60,7 +60,7 @@
 				</a>
 			</li>
 			<li>
-				<a routerLink="customs"
+				<a *ngIf="isAdmin()" routerLink="customs"
 				   [ngClass]="{'bg-gray-700 text-white': isActive('customs'),
 				   'text-gray-400 hover:bg-gray-800 hover:text-white-300': !isActive('customs')}"
 				   class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-600"
@@ -72,7 +72,7 @@
 				</a>
 			</li>
 			<li>
-				<a routerLink="commands"
+				<a *ngIf="isAdmin()" routerLink="commands"
 				   [ngClass]="{'bg-gray-700 text-white': isActive('commands'),
 				   'text-gray-400 hover:bg-gray-800 hover:text-white-300': !isActive('commands')}"
 				   class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-600"

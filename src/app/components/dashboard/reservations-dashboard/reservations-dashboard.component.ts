@@ -47,11 +47,10 @@ export class ReservationsDashboardComponent implements OnInit {
 		return user.firstname + ' ' + user.lastname.toUpperCase()
 	}
 
-	getCar(id: number): string {
+	getVehicle(id: number): string {
 		const vehicle = this.vehicles.filter(v => v.vehiculeId == id)[0];
-		return vehicle.marque + ' ' + vehicle.model;
+		return vehicle.marque.toUpperCase() + ' ' + vehicle.model;
 	}
-
 
 	delete(id: number) {
 		this.rService.deleteReservation(id).subscribe({

@@ -8,10 +8,11 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./update-vehicle-dashboard.component.css']
 })
 export class UpdateVehicleDashboardComponent implements OnInit {
+	img: string = "";
 	brand: string = "";
 	model: string = "";
 	price: string = "";
-	image: string = "";
+	image: File | null = null;
 
 	constructor(private service: VehiculeService, private router: Router, private route: ActivatedRoute) {}
 
@@ -20,9 +21,10 @@ export class UpdateVehicleDashboardComponent implements OnInit {
 		const id = parseInt(<string>this.route.snapshot.paramMap.get('id'));
 		this.service.getVehicleById(id).subscribe({
 			next: data => {
+				this.img = data.image;
 				this.brand = data.marque;
 				this.model = data.model;
-				this.price = data.model;
+				this.price = data.prix.toString();
 			},
 			error: err => console.error(err)
 		})
@@ -30,14 +32,7 @@ export class UpdateVehicleDashboardComponent implements OnInit {
 
 	onSubmit(form: any): void {
 
-		const vehicle = {
-			vehiculeId: 0,
-			marque: this.brand,
-			model: this.brand,
-			prix: parseFloat(this.price),
-			image: this.image
-		};
-		this.service.addVehicle(vehicle).subscribe({
+		this.service.addVehicleWithImage(this.brand, this.brand, parseFloat(this.price), this.image).subscribe({
 			next: () => this.router.navigate(["/dashboard/vehicles"]),
 			error: err => console.error(err)
 		})

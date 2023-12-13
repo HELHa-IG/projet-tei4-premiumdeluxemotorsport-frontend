@@ -54,9 +54,11 @@ import { AddVehicleDashboardComponent } from './components/dashboard/vehicles-da
 import { UpdateVehicleDashboardComponent } from './components/dashboard/vehicles-dashboard/update-vehicle-dashboard/update-vehicle-dashboard.component';
 import { CommandsDashboardComponent } from './components/dashboard/commands-dashboard/commands-dashboard.component';
 import { AddCommandDashboardComponent } from './components/dashboard/commands-dashboard/add-command-dashboard/add-command-dashboard.component';
+import { UpdateCommandDashboardComponent } from './components/dashboard/commands-dashboard/update-command-dashboard/update-command-dashboard.component';
 import { CustomsDashboardComponent } from './components/dashboard/customs-dashboard/customs-dashboard.component';
 import { UpdateCustomDashboardComponent } from './components/dashboard/customs-dashboard/update-custom-dashboard/update-custom-dashboard.component';
 import { AddCustomDashboardComponent } from './components/dashboard/customs-dashboard/add-custom-dashboard/add-custom-dashboard.component';
+import { ReservationsComponent } from './components/reservations/reservations.component';
 
 @NgModule({
   declarations: [
@@ -91,9 +93,11 @@ import { AddCustomDashboardComponent } from './components/dashboard/customs-dash
     UpdateVehicleDashboardComponent,
     CommandsDashboardComponent,
     AddCommandDashboardComponent,
+    UpdateCommandDashboardComponent,
     CustomsDashboardComponent,
     UpdateCustomDashboardComponent,
     AddCustomDashboardComponent,
+    ReservationsComponent,
 ],
 	imports: [
 		BrowserModule,

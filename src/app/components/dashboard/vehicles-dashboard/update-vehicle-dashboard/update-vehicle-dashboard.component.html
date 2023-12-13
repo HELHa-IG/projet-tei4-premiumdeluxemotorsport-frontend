@@ -7,35 +7,39 @@
 						<h1 class="block text-2xl font-bold text-gray-800 dark:text-white uppercase">Update vehicle</h1>
 					</div>
 					<div class="mt-16">
-						<form #updateVehicleForm="ngForm" (ngSubmit)="onSubmit(updateVehicleForm)">
-							<div class="grid gap-y-4">
-								<div>
-									<label for="brand" class="block text-sm mb-2 dark:text-white">Brand</label>
-									<div class="relative">
-										<input [(ngModel)]="brand" type="text" id="brand" name="brand" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required minlength="3">
+						<div class="flex items-center">
+							<img *ngIf="img.includes('https')" ngSrc="{{img}}" alt="" class="me-12">
+							<img *ngIf="!img.includes('https')" ngSrc="assets/images/{{img}}" alt="" class="me-12">
+							<form class="w-full" #updateVehicleForm="ngForm" (ngSubmit)="onSubmit(updateVehicleForm)">
+								<div class="grid gap-y-4">
+									<div>
+										<label for="brand" class="block text-sm mb-2 dark:text-white">Brand</label>
+										<div class="relative">
+											<input [(ngModel)]="brand" type="text" id="brand" name="brand" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required minlength="3">
+										</div>
 									</div>
-								</div>
-								<div>
-									<label for="model" class="block text-sm mb-2 dark:text-white">Model</label>
-									<div class="relative">
-										<input [(ngModel)]="model" type="text" id="model" name="model" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required minlength="3">
+									<div>
+										<label for="model" class="block text-sm mb-2 dark:text-white">Model</label>
+										<div class="relative">
+											<input [(ngModel)]="model" type="text" id="model" name="model" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required minlength="3">
+										</div>
 									</div>
-								</div>
-								<div>
-									<label for="price" class="block text-sm mb-2 dark:text-white">Price</label>
-									<div class="relative">
-										<input [(ngModel)]="price" type="number" id="price" name="price" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required>
+									<div>
+										<label for="price" class="block text-sm mb-2 dark:text-white">Price</label>
+										<div class="relative">
+											<input [(ngModel)]="price" type="number" id="price" name="price" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required>
+										</div>
 									</div>
-								</div>
-								<div>
-									<label for="image" class="block text-sm mb-2 dark:text-white">Image</label>
-									<div class="relative">
-										<input [(ngModel)]="image" type="file" id="image" name="image" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required>
+									<div>
+										<label for="image" class="block text-sm mb-2 dark:text-white">Image</label>
+										<div class="relative">
+											<input [(ngModel)]="image" type="file" id="image" name="image" class="py-3 px-4 block w-full border-[1px] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600 shadow-sm focus:z-10 dark:focus:outline-none dark:focus:ring-1 file:bg-gray-50 file:border-0 file:me-4 file:py-3 file:px-4 dark:file:bg-gray-700 dark:file:text-gray-400">
+										</div>
 									</div>
+									<button [disabled]="!updateVehicleForm.valid" type="submit" class="w-full mt-6 py-4 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Update</button>
 								</div>
-								<button [disabled]="!updateVehicleForm.valid" type="submit" class="w-full mt-6 py-4 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Add</button>
-							</div>
-						</form>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>

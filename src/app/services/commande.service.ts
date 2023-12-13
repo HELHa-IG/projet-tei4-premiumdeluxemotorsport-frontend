@@ -14,7 +14,7 @@ export class CommandeService {
 
 	getCommandes(): Observable<Commande[]>{
 	  const headers : HttpHeaders = this.service.getHeaders()
-		return this.http.get<Commande[]>('`${environment.api}/commandes', {headers})
+		return this.http.get<Commande[]>(`${environment.api}/commandes`, {headers})
 	}
 
 	getCommandeById(id: number): Observable<Commande> {

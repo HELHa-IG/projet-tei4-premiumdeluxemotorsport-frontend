@@ -76,17 +76,17 @@
 							<tr *ngFor="let user of data" class="bg-white hover:bg-gray-50 dark:bg-slate-900 dark:hover:bg-slate-800">
 								<td class="h-px w-px whitespace-nowrap">
 									<div class="px-6 py-2">
-										<div class="block text-sm text-black-600 decoration-2 dark:text-white-500">{{ user.id }}</div>
+										<div class="block text-sm text-black-600 decoration-2 dark:text-white">{{ user.id }}</div>
 									</div>
 								</td>
 								<td class="h-px w-px whitespace-nowrap">
 									<div class="px-6 py-2">
-										<div class="block text-sm text-black-600 decoration-2 dark:text-white-500">{{ user.firstname }}</div>
+										<div class="block text-sm text-black-600 decoration-2 dark:text-white">{{ user.firstname }}</div>
 									</div>
 								</td>
 								<td class="h-px w-px whitespace-nowrap">
 									<div class="px-6 py-2">
-										<div class="block text-sm text-black-600 decoration-2 dark:text-white-500">{{ user.lastname }}</div>
+										<div class="block text-sm text-black-600 decoration-2 dark:text-white">{{ user.lastname.toUpperCase() }}</div>
 									</div>
 								</td>
 								<td class="h-px w-px whitespace-nowrap">
@@ -98,7 +98,7 @@
 								</td>
 								<td class="h-px w-px whitespace-nowrap">
 									<div class="px-6 py-3">
-										<div class="block text-sm font-bold text-black-600 decoration-2 dark:text-white-500">{{getRoleName(user.roleID).toUpperCase()}}</div>
+										<div class="block text-sm font-bold text-black-600 decoration-2 dark:text-white">{{getRoleName(user.roleID).toUpperCase()}}</div>
 									</div>
 								</td>
 								<td class="h-px w-px  whitespace-nowrap">

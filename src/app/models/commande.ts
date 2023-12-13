@@ -5,8 +5,7 @@ import {Vehicle} from "./vehicle";
 export interface Commande {
 	id: number;
 	date: Date;
-	user: User;
-	Custom: Custom;
-	vehicule: Vehicle;
-
+	customId: number;
+	vehiculeId: number;
+	userId: number;
 }
