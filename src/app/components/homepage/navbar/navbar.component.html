@@ -53,7 +53,7 @@
 				-->
 				<a routerLink="/vehicles" class="font-medium text-gray-500 hover:text-gray-400 md:py-6 dark:text-gray-400 dark:hover:text-gray-500">Vehicles</a>
 				<a *ngIf="isConnected()" routerLink="/reservations" class="font-medium text-gray-500 hover:text-gray-400 md:py-6 dark:text-gray-400 dark:hover:text-gray-500">Reservations</a>
-				<a *ngIf="isConnected()" routerLink="/ordersHistory" class="font-medium text-gray-500 hover:text-gray-400 md:py-6 dark:text-gray-400 dark:hover:text-gray-500">Commands</a>
+				<a *ngIf="isConnected()" routerLink="/ordersHistory" class="font-medium text-gray-500 hover:text-gray-400 md:py-6 dark:text-gray-400 dark:hover:text-gray-500">My Commands</a>
 				<a routerLink="/contact" class="font-medium text-gray-500 hover:text-gray-400 md:py-6 dark:text-gray-400 dark:hover:text-gray-500">Contact</a>
 
 				<a  *ngIf="!isConnected()" routerLink="/login" class="flex items-center gap-x-2 font-medium text-gray-500 hover:text-blue-600 md:border-s md:border-gray-300 md:my-6 md:ps-6 dark:border-gray-700 dark:text-gray-400 dark:hover:text-blue-500">
