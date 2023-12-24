@@ -7,6 +7,7 @@ import {VehiculeService} from "../../../services/vehicule.service";
 import {Vehicle} from "../../../models/vehicle";
 import {CustomService} from "../../../services/custom.service";
 import {AuthenticationService} from "../../../services/authentication.service";
+import {delay} from "rxjs";
 
 @Component({
   selector: 'app-product-page',
@@ -55,14 +56,15 @@ export class ProductPageComponent implements OnInit{
 
 	buy(){
 		this.customService.addCustom(this.custom).subscribe({
-			next:(data) => this.command.customId = data.id,
+			next:(data) => {
+				this.command.customId = data.id
+				this.commandeService.addCommande(this.command).subscribe({
+					next:() => this.router.navigate(["thanks"]),
+					error: error => console.log(error)
+				})
+			},
 			error : error => console.log(error)
 		})
-
-		this.commandeService.addCommande(this.command).subscribe({
-			next:() => this.router.navigate([""]),
-			error: error => console.log(error)
-			})
 	}
 
 	cusPriceWatcher() :void{
