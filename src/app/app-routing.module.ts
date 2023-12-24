@@ -40,6 +40,9 @@ import {
 	AddCustomDashboardComponent
 } from "./components/dashboard/customs-dashboard/add-custom-dashboard/add-custom-dashboard.component";
 import {ReservationsComponent} from "./components/reservations/reservations.component";
+import {ProductPageComponent} from "./components/commands/product-page/product-page.component";
+import {ThanksPageComponent} from "./components/commands/thanks-page/thanks-page.component";
+import {OrderHistoryComponent} from "./components/commands/order-history/order-history.component";
 
 const routes: Routes = [
 	//{ path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -48,8 +51,10 @@ const routes: Routes = [
 	{ path: 'register', component: RegisterComponent},
 	{ path: 'vehicles', component: VehiculesPageComponent},
 	{ path: 'reservations', component: ReservationsComponent},
-	{ path: 'commands', component: VehiculesPageComponent},
+	{ path: 'buy/:id', component: ProductPageComponent},
+	{ path: 'ordersHistory', component: OrderHistoryComponent},
 	{ path: 'customs', component: VehiculesPageComponent},
+	{ path: 'thanks', component: ThanksPageComponent},
 	{ path: 'contact', component: ContactComponent},
 	{ path: 'dashboard', component: DashboardComponent, children: [
 			{ path: 'account', component: AccountsDashboardComponent},

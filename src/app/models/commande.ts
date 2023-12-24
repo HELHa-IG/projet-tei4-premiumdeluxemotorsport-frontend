@@ -8,4 +8,5 @@ export interface Commande {
 	customId: number;
 	vehiculeId: number;
 	userId: number;
+	vehicule?: Vehicle;
 }

@@ -59,7 +59,9 @@ import { CustomsDashboardComponent } from './components/dashboard/customs-dashbo
 import { UpdateCustomDashboardComponent } from './components/dashboard/customs-dashboard/update-custom-dashboard/update-custom-dashboard.component';
 import { AddCustomDashboardComponent } from './components/dashboard/customs-dashboard/add-custom-dashboard/add-custom-dashboard.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
-import { CommandsComponent } from './components/commands/commands/commands.component';
+import { ProductPageComponent } from './components/commands/product-page/product-page.component';
+import { ThanksPageComponent } from './components/commands/thanks-page/thanks-page.component';
+import { OrderHistoryComponent } from './components/commands/order-history/order-history.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +101,9 @@ import { CommandsComponent } from './components/commands/commands/commands.compo
     UpdateCustomDashboardComponent,
     AddCustomDashboardComponent,
     ReservationsComponent,
-    CommandsComponent,
+    ProductPageComponent,
+    ThanksPageComponent,
+    OrderHistoryComponent,
 ],
 	imports: [
 		BrowserModule,
