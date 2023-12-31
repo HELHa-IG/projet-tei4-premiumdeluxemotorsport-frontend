@@ -10,15 +10,26 @@ import {VehiculeService} from "../../../../services/vehicule.service";
 export class AddVehicleDashboardComponent {
 	brand: string = "";
 	model: string = "";
-	price: string = "";
-	image: File | null = null;
+	price!: number;
+	selectedFile!: File;
 
 	constructor(private service: VehiculeService, private router: Router) {}
 
+
+	onFileSelected(event: any) {
+		this.selectedFile = event.target.files[0];
+	}
+
 	onSubmit(form: any): void {
-		this.service.addVehicleWithImage(this.brand, this.brand, parseFloat(this.price), this.image).subscribe({
-			next: () => this.router.navigate(["/dashboard/vehicles"]),
-			error: err => console.error(err)
-		});
+		const subscription = this.service.addVehicleWithImage(this.brand, this.model, this.price, this.selectedFile).subscribe({
+			next: (data: any) => {
+				subscription.unsubscribe();
+			},
+			error: (error: any) => {
+				console.log(error)
+				alert("Une erreur est survenue lors de l'ajout du véhicule");
+				subscription.unsubscribe();
+			}}
+		);
 	}
 }

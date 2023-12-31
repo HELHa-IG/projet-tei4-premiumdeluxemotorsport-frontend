@@ -15,7 +15,7 @@ constructor(private vehicleService: VehiculeService){}
 ngOnInit() {
 	this.vehicleService.getVehicles().subscribe({
 		next: (data) => {
-			this.vehicles = data;
+			this.vehicles = data.reverse();
 		},
 		error: (error) => {
 			this.vehicles = [];
